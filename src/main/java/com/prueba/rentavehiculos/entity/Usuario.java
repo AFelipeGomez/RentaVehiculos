@@ -17,6 +17,7 @@ import java.util.List;
 @Entity
 @Table(name = "usuario")
 
+
 public class Usuario {
 
     @Id
@@ -35,6 +36,7 @@ public class Usuario {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario", orphanRemoval = true)
     private List<MedioPago> mediosPago;
+
     @OneToOne(mappedBy = "usuario")
     private Renta renta;
 

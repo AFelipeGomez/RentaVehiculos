@@ -1,5 +1,7 @@
 package com.prueba.rentavehiculos.entity;
 
+import com.fasterxml.jackson.annotation.*;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -10,7 +12,8 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "renta")
-public class Renta  implements Serializable {
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+public class Renta implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,8 +33,10 @@ public class Renta  implements Serializable {
     @Column(name = "estado", nullable = false, length = 25)
     private String estado; // Abierto, Cerrado, En revisión
 
+
     @OneToOne
     @JoinColumn(name = "id_usuario", unique = true)
+
     private Usuario usuario;
 
 
@@ -103,6 +108,8 @@ public class Renta  implements Serializable {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+
 
     public Usuario getUsuario() {
         return usuario;

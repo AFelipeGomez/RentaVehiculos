@@ -34,7 +34,7 @@ public class RentaController {
     public ResponseEntity<?> save(@RequestBody Renta renta) throws ConflictException, ModelNotFoundException {
 
         service.saveRenta(renta);
-        return new ResponseEntity<Object>(renta, HttpStatus.CREATED);
+        return new ResponseEntity<Object>( HttpStatus.CREATED);
     }
 
     /**
