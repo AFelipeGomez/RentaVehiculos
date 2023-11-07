@@ -1,6 +1,7 @@
 package com.prueba.rentavehiculos.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "renta")
-public class Renta {
+public class Renta  implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

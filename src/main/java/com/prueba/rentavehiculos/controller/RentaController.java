@@ -16,7 +16,7 @@ import java.util.Map;
  * Este controlador maneja las solicitudes HTTP relacionadas con la entidad Renta.
  */
 @RestController
-@RequestMapping("/renta")
+@RequestMapping("/rentaVehiculo")
 public class RentaController {
 
     @Autowired

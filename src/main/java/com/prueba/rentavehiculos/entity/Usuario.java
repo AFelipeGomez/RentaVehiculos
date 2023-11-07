@@ -1,9 +1,8 @@
 package com.prueba.rentavehiculos.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
 
@@ -17,7 +16,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "usuario")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+
 public class Usuario {
 
     @Id
@@ -33,6 +32,7 @@ public class Usuario {
     private String clave;// Clave encriptada
 
     private LocalDateTime fechaRegistro;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario", orphanRemoval = true)
     private List<MedioPago> mediosPago;
     @OneToOne(mappedBy = "usuario")
